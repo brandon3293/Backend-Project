@@ -1,7 +1,17 @@
+//Brandon Angos Web Dev  Period 7/8 Even
 //status 200 == OK
 //status 400 == BAD
+//status 404 === error
 
-
+//1.Programs  use APIs to communicate with one another. 
+//Its grouped in different categories if the program wishes to obtain info 
+//like if I wanted to get the songs or genres a GET request would be sent
+//However I I wished to change something, add or delete a POST, PUT or Delete 
+//request would be sent
+//2.Learned a bit more about APIs and the different requests sent and 
+//gained a bit more experience in using Express
+//3.Project could be extended by maybe trying to use 
+//other libraries to send songs in files by using those APIs
 const express = require('express');
 const app = express();
 
@@ -127,9 +137,6 @@ app.delete('/api/songs/:id', (req,res)=>{
 
     }
 });
-
-
-
 
 app.listen(500,()=>{
     console.log('listening on port 500 ...');
