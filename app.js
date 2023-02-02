@@ -105,13 +105,28 @@ app.put('/api/songs/:id',(req,res)=>{
         res.status(404).send('Song name must be between 3 and 32 characters')
         return
     }else{
-        song["name"] = req.body.name
-        song["genre"] = req.body.genre;
-        res.status(200).send(song)
+        song["name"]=req.body.name
+        song["genre"]=req.body.genre;
+        song["singer"]= req.body.singer;
+        res.status(200).send(song);
     }
-})
+});
 
 //delete requests
+
+app.delete('/api/songs/:id', (req,res)=>{
+    let song = songs.find(s => s.id === parseInt(req.params.id))
+    if (!song){
+        res.status(404).send('The song was not found')
+        return
+    }
+    else{
+        let idx = songs.indexOf(song)
+        songs.splice(idx, idx+1)
+        res.status(200).send(song)
+
+    }
+});
 
 
 
