@@ -48,7 +48,7 @@ app.get('/api/genres',(req,res)=>{
 app.get('/api/genres/:genre',(req,res)=>{
     let filtered=songs.filter(s=> s.genre ===req.params.genre);
     if(filtered.length===0){
-        res.status(404).send("Genre not found");
+        res.status(404).send("NO songs under this genre");
         return
     }
     res.status(200).send(filtered);
